@@ -14,14 +14,14 @@ val releaseSigningProperties = Properties().apply {
 
 android {
     namespace = "com.jason.screentranslator"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.jason.screentranslator"
         minSdk = 26
         targetSdk = 33
-        versionCode = 2
-        versionName = "0.1.1"
+        versionCode = 3
+        versionName = "0.1.2"
         buildConfigField("String", "TRANSLATION_BASE_URL", "\"${providers.gradleProperty("translationBaseUrl").orNull ?: ""}\"")
         buildConfigField("String", "TRANSLATION_API_KEY", "\"${providers.gradleProperty("translationApiKey").orNull ?: ""}\"")
         buildConfigField("String", "TRANSLATION_MODEL", "\"${providers.gradleProperty("translationModel").orNull ?: ""}\"")
@@ -67,8 +67,6 @@ kotlin {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
-    implementation("com.google.mlkit:text-recognition:16.0.1")
 }

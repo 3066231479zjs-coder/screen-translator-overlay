@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ScreenTranslatorOverlay"
 include(":app")
+include(":probe")

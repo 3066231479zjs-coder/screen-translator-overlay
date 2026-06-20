@@ -1,12 +1,13 @@
 {
-  "versionCode": 2,
-  "versionName": "0.1.1",
-  "apkUrl": "https://github.com/3066231479zjs-coder/screen-translator-overlay/releases/download/v0.1.1/screen-translator-overlay-v0.1.1-compat.apk",
+  "versionCode": 3,
+  "versionName": "0.1.2",
+  "apkUrl": "https://github.com/3066231479zjs-coder/screen-translator-overlay/releases/download/v0.1.2/screen-translator-overlay-v0.1.2-install-compat.apk",
   "changelog": [
-    "发布更兼容的正式签名 APK",
-    "targetSdk 降到 33，减少国产 ROM 安装器兼容问题",
-    "移除不必要的 REQUEST_INSTALL_PACKAGES 权限",
-    "启用 v2/v3 APK 签名"
+    "发布小体积安装兼容验证版",
+    "compileSdk 降到 34，避免部分安装器处理 Android 15 打包信息异常",
+    "暂时移除 ML Kit bundled OCR 大库，将 APK 从约 45.9MB 降到约 1.6MB",
+    "保留悬浮窗、通知、屏幕捕获授权与翻译接口壳流程",
+    "附带 635KB 安装诊断探针 APK，用于区分手机安装器问题和主包问题"
   ],
   "required": false
 }

@@ -70,7 +70,7 @@ class MainActivity : Activity() {
 
     private fun updateStatus() {
         val overlay = if (Settings.canDrawOverlays(this)) "已开启" else "未开启"
-        statusView.text = "屏幕悬浮翻译 v0.1\n\n悬浮窗权限：$overlay\n\n使用方法：授权后切到任意页面，点击悬浮球，当前版本会显示可用流程占位；下一步接入真实截图 OCR 与翻译。"
+        statusView.text = "屏幕悬浮翻译 v0.1.2 安装兼容版\n\n悬浮窗权限：$overlay\n\n使用方法：授权后切到任意页面，点击悬浮球。本版本用于排查安装器兼容问题，暂时关闭本地 OCR 大模型。"
     }
 
     private fun requestOverlayPermission() {
