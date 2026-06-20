@@ -1,6 +1,15 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+}
+
+val releaseSigningEnv = file("/home/ubuntu/secure-keystores/screen-translator-overlay-release.env")
+val releaseSigningProperties = Properties().apply {
+    if (releaseSigningEnv.exists()) {
+        releaseSigningEnv.inputStream().use { load(it) }
+    }
 }
 
 android {
@@ -18,8 +27,29 @@ android {
         buildConfigField("String", "TRANSLATION_MODEL", "\"${providers.gradleProperty("translationModel").orNull ?: ""}\"")
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("/home/ubuntu/secure-keystores/screen-translator-overlay-release.jks")
+            storePassword = releaseSigningProperties.getProperty("SCREEN_TRANSLATOR_STORE_PASSWORD", "")
+            keyAlias = "screen-translator-overlay"
+            keyPassword = releaseSigningProperties.getProperty("SCREEN_TRANSLATOR_STORE_PASSWORD", "")
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+
     buildFeatures {
         buildConfig = true
+    }
+
+    lint {
+        checkReleaseBuilds = false
     }
 
     compileOptions {
