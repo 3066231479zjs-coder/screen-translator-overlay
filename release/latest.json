@@ -1,0 +1,10 @@
+{
+  "versionCode": 1,
+  "versionName": "0.1.0",
+  "apkUrl": "https://github.com/3066231479zjs-coder/screen-translator-overlay/releases/latest/download/screen-translator-overlay.apk",
+  "changelog": [
+    "首个 Android MVP",
+    "支持悬浮球、屏幕捕获授权、本地 OCR、可配置翻译接口"
+  ],
+  "required": false
+}
