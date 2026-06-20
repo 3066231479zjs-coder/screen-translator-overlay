@@ -19,9 +19,9 @@ android {
     defaultConfig {
         applicationId = "com.jason.screentranslator"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        targetSdk = 33
+        versionCode = 2
+        versionName = "0.1.1"
         buildConfigField("String", "TRANSLATION_BASE_URL", "\"${providers.gradleProperty("translationBaseUrl").orNull ?: ""}\"")
         buildConfigField("String", "TRANSLATION_API_KEY", "\"${providers.gradleProperty("translationApiKey").orNull ?: ""}\"")
         buildConfigField("String", "TRANSLATION_MODEL", "\"${providers.gradleProperty("translationModel").orNull ?: ""}\"")
@@ -33,6 +33,9 @@ android {
             storePassword = releaseSigningProperties.getProperty("SCREEN_TRANSLATOR_STORE_PASSWORD", "")
             keyAlias = "screen-translator-overlay"
             keyPassword = releaseSigningProperties.getProperty("SCREEN_TRANSLATOR_STORE_PASSWORD", "")
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
         }
     }
 
@@ -41,6 +44,7 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             signingConfig = signingConfigs.getByName("release")
+            isDebuggable = false
         }
     }
 
